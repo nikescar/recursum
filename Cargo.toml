@@ -24,3 +24,15 @@ cargo-release = "0.13.5"
 [package.metadata.release]
 disable-publish = false
 no-dev-version = true
+
+[profile.release]
+lto = "fat"
+panic = "abort"
+codegen-units = 1
+opt-level = 3
+debug = 0
+strip = "symbols"
+
+[profile.release-with-symbols]
+inherits = "release"
+strip = false
