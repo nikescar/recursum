@@ -179,7 +179,7 @@ jobs:
               then
                   cp LICENSE* "$i"
                   cp README.md "$i"
-                  chmod +x "$i/${{ env.BIN_NAME }}${{ contains(i, 'windows') && '.exe' || '' }}"
+                  chmod +x "$i/${{ env.BIN_NAME }}${{ contains($i, 'windows') && '.exe' || '' }}"
                   tar -cvpzf "${i}.tar.gz" --directory=${i} .
               fi
           done
